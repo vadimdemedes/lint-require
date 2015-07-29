@@ -1,4 +1,4 @@
-# lint-require
+# lint-require [![Circle CI](https://circleci.com/gh/vdemedes/lint-require.svg?style=svg)](https://circleci.com/gh/vdemedes/lint-require)
 
 Report unused or missing dependencies, by scanning `require()` calls recursively.
 
@@ -47,6 +47,8 @@ deps = {
 
 
 ### Tests
+
+[![Circle CI](https://circleci.com/gh/vdemedes/lint-require.svg?style=svg)](https://circleci.com/gh/vdemedes/lint-require)
 
 ```
 $ make test
