@@ -1,0 +1,41 @@
+{
+  "name": "lint-require",
+  "version": "1.0.0",
+  "description": "Check all require() calls in a project",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^1.1.0",
+    "lodash.difference": "^3.2.2",
+    "meow": "^3.3.0",
+    "scan-dependencies": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "istanbul-harmony": "^0.3.16",
+    "make-lint": "vdemedes/make-lint",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vdemedes/lint-require.git"
+  },
+  "keywords": [
+    "lint",
+    "require",
+    "require-lint",
+    "require-check",
+    "check-require"
+  ],
+  "author": "Vadim Demedes <vdemedes@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vdemedes/lint-require/issues"
+  },
+  "homepage": "https://github.com/vdemedes/lint-require#readme",
+  "bin": {
+    "lint-require": "bin/lint-require"
+  }
+}

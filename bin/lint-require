@@ -1,0 +1,69 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/**
+ * Dependencies
+ */
+
+const chalk = require('chalk');
+const join = require('path').join;
+const meow = require('meow');
+const lint = require('../');
+
+
+/**
+ * Setup CLI
+ */
+
+let help = [
+  'Usage',
+  '    lint-require <path>'
+].join('\n');
+
+let cli = meow({
+  help: help,
+  pkg: require('../package.json')
+});
+
+
+/**
+ * Run
+ */
+
+if (cli.flags.h) {
+  return cli.showHelp();
+}
+
+let path = cli.input[0] || process.cwd();
+let pkgPath = join(path, 'package.json');
+
+try {
+  let deps = lint(pkgPath);
+
+  deps.missing.forEach(function (module) {
+    error('missing', module);
+  });
+
+  deps.unused.forEach(function (module) {
+    error('unused', module);
+  });
+
+  let hasErrors = deps.missing.length || deps.unused.length;
+
+  if (hasErrors) {
+    process.exit(1);
+  }
+} catch (err) {
+  error('err', err.message);
+  process.exit(1);
+}
+
+
+/**
+ * Helpers
+ */
+
+function error (type, message) {
+  console.log('  ' + chalk.red(type) + ' ' + message);
+}
